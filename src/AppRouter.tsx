@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Help from './pages/Help/Help';
-import Home from './pages/Home/Home';
-const AppRouter: React.FC = ({children}) => {
-    return (
-        <Router>
-            {children}
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/help" element={<Help />} />
-            </Routes>
+const Home = React.lazy(() => import('./pages/Home/Home'));
+const Help = React.lazy(() => import('./pages/Help/Help'));
 
-        </Router>
+const AppRouter: React.FC = ({ children }) => {
+    return (
+        <Suspense fallback={<div className='mt-5'>Loading...</div>}>
+            <Router>
+                {children}
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/help" element={<Help />} />
+                </Routes>
+
+            </Router>
+        </Suspense>
+
     );
 };
 
