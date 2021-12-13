@@ -29,7 +29,7 @@ const Banner = () => {
                                     src={banner1}
                                     alt="First slide"
                                 />
-                                
+
                             </Carousel.Item>
 
                             <Carousel.Item>
