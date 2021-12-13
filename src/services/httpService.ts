@@ -6,12 +6,7 @@ const instance = axios.create({
     headers: { 'X-Custom-Header': 'foobar' }
 });
 
-
-
-
 const responseBody = (response: AxiosResponse) => response.data.data
-
-
 
 const requests = {
     get: (url: string) => instance.get(url).then(responseBody),
