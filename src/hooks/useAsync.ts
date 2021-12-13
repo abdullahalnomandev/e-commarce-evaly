@@ -11,7 +11,7 @@ const useAsync = <T>(asynFunction: () => Promise<T>) => {
     useEffect(() => {
         setStatus('pending')
         setData(null)
-        setError(null)
+        setError(null) 
         asynFunction()
             .then(res => {
                 setData(res)
