@@ -1,6 +1,7 @@
 import Product from 'components/common/Product';
 import React from 'react';
 import { Container, Row } from 'react-bootstrap';
+import ProductSkeletons from '../../skeletons/ProductSkeletons';
 import { IProduct } from 'types';
 
 interface IProps {
@@ -17,16 +18,17 @@ const Products = ({ products, isLoading }: IProps) => {
             <Container>
                 <h2 className='mb-4'>Latest Products</h2>
                 {
-                    isLoading && <h4 className='text-center'> Loading.....</h4>
+                    isLoading && <ProductSkeletons />
                 }
                 {
                     !isLoading &&
-                    <Row >
+                    (<Row className='align-items-stretch' >
 
                         {
                             products?.map((product: IProduct) => <Product key={product._id} product={product} />)
                         }
                     </Row>
+                    )
                 }
 
             </Container>
