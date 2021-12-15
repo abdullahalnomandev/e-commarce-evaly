@@ -1,10 +1,10 @@
-import React from 'react';
-import AppRouter from './AppRouter';
-import Header from './components/common/Header';
+import React from "react";
+import AppRouter from "./AppRouter";
+import Header from "./components/common/Header";
 
 const App = () => {
   return (
-    <AppRouter >
+    <AppRouter>
       <Header />
     </AppRouter>
   );
