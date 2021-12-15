@@ -3,7 +3,7 @@ import { IProduct } from "types";
 import { ActionsType } from "./../actionsTypes";
 
 const cartReducer = (state: IProduct[] = [], action: CartAction) => {
-  switch (action.payLoad) {
+  switch (action.type) {
     case ActionsType.ADD_TO_CART: {
       return [...state, action.payLoad];
     }

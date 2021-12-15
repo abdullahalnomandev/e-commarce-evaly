@@ -4,7 +4,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { BsFillCartCheckFill } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { addToCart } from "redux/actions/cardAction";
+import { addToCart } from "redux/actionCreators/cardAction";
 import ProductsService from "services/productsServecies";
 import { IProduct } from "types";
 import imageUrlParser from "utils/imageUrlParser";
