@@ -5,10 +5,9 @@ import { BsFillCartCheckFill } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { addToCart } from "redux/actionCreators/cardAction";
-import ProductsService from "services/productsServecies";
+import ProductsService from "services/ProductsServecies";
 import { IProduct } from "types";
 import imageUrlParser from "utils/imageUrlParser";
-
 const ProductDetails = () => {
   const { id } = useParams<Record<string, string | undefined>>();
   const { data, isSuccess, isLoading, isError, error } = useAsync<IProduct>(

@@ -1,26 +1,25 @@
-import Banner from 'components/home/Banner';
-import Products from 'components/home/Products';
-import useAsync from 'hooks/useAsync';
-import React, { useEffect, useState } from 'react';
-import productsServecies from 'services/productsServecies';
-import { IProduct } from 'types';
+import Banner from "components/home/Banner";
+import Products from "components/home/Products";
+import useAsync from "hooks/useAsync";
+import React from "react";
+import ProductsService from "services/ProductsServecies";
+
 const Home = () => {
+  // const [product, setProducts] = useState<IProduct[]>([] as IProduct[])
 
-    // const [product, setProducts] = useState<IProduct[]>([] as IProduct[])
+  // useEffect(() => {
+  //     productsServecies.getProducts().then( res => setProducts(res))
 
-    // useEffect(() => {
-    //     productsServecies.getProducts().then( res => setProducts(res))
+  // }, [])
 
-    // }, [])
+  const { data, isLoading } = useAsync(ProductsService.getProducts);
 
-    const { data, isLoading } = useAsync(productsServecies.getProducts);
-
-    return (
-        <div>
-            <Banner />
-            <Products products={data} isLoading={isLoading} />
-        </div>
-    );
+  return (
+    <div>
+      <Banner />
+      <Products products={data} isLoading={isLoading} />
+    </div>
+  );
 };
 
 export default Home;
