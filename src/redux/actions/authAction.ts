@@ -9,4 +9,4 @@ interface logoutAction {
   type: ActionsType.LOGOUT;
 }
 
-export type CartAction = loginAction | logoutAction;
+export type AuthAction = loginAction | logoutAction;

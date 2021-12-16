@@ -1,15 +1,37 @@
+import { Dispatch } from "react";
 import { CartAction } from "redux/actions/cardAction";
 import { ActionsType } from "redux/actionsTypes";
-import { IProduct } from "types";
+import AuthService from "services/AuthService";
+import { AuthAction } from "./../actions/authAction";
 
-export const addToCart = (payLoad: IProduct): CartAction => {
-  return {
-    type: ActionsType.ADD_TO_CART,
-    payLoad,
+interface IAuth {
+  email: string;
+  passWord: string;
+}
+
+export const login = (payLoad: IAuth) => {
+  return (dispatch: Dispatch<AuthAction>) => {
+    AuthService.login(payLoad).then((data) => {
+      dispatch({
+        type: ActionsType.LOGIN,
+        payLoad: data,
+      });
+    });
   };
 };
 
-export const clearCart = (): CartAction => {
+// export const login =
+//   (payLoad: { email: string; password: string }) => (disPatch: Dispatch<AuthAction>) => {
+
+//   AuthService.login(payLoad).then((data) => {
+//       disPatch({
+//         type: ActionsType.LOGIN,
+//         payLoad: data,
+//       });
+//     });
+//   };
+
+export const logout = (): CartAction => {
   return {
     type: ActionsType.CLEAR_CART,
   };
