@@ -20,17 +20,6 @@ export const login = (payLoad: IAuth) => {
   };
 };
 
-// export const login =
-//   (payLoad: { email: string; password: string }) => (disPatch: Dispatch<AuthAction>) => {
-
-//   AuthService.login(payLoad).then((data) => {
-//       disPatch({
-//         type: ActionsType.LOGIN,
-//         payLoad: data,
-//       });
-//     });
-//   };
-
 export const logout = (): CartAction => {
   return {
     type: ActionsType.CLEAR_CART,

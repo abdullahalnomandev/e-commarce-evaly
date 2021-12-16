@@ -13,6 +13,7 @@ import { BiUser } from "react-icons/bi";
 import { BsFillBagCheckFill, BsPhone } from "react-icons/bs";
 import { FiPhoneCall } from "react-icons/fi";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { AppState } from "redux/store";
 import { IProduct } from "types";
 
@@ -66,7 +67,9 @@ const Header = () => {
                 <span className="bg-primary"></span>
               </li>
               <li>
-                <BiUser />
+                <Link to="/login">
+                  <BiUser />
+                </Link>
               </li>
             </ul>
           </div>
