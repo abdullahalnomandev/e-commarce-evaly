@@ -1,5 +1,5 @@
 import useAsync from "hooks/useAsync";
-import React from "react";
+import React, { useCallback } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { BsFillCartCheckFill } from "react-icons/bs";
 import { useDispatch } from "react-redux";
@@ -10,9 +10,14 @@ import { IProduct } from "types";
 import imageUrlParser from "utils/imageUrlParser";
 const ProductDetails = () => {
   const { id } = useParams<Record<string, string | undefined>>();
-  const { data, isSuccess, isLoading, isError, error } = useAsync<IProduct>(
-    () => ProductsService.getProductByID(String(id))
-  );
+
+  const getProduct = useCallback(() => {
+    return ProductsService.getProductByID(String(id));
+  }, [id]);
+
+  const { data, isSuccess, isLoading, isError, error } =
+    useAsync<IProduct>(getProduct);
+
   const { name, image, description, price } = (data || {}) as IProduct;
   console.log("name", name);
 

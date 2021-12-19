@@ -82,7 +82,7 @@ const Header = () => {
           <Nav className="ms-auto">
             <Nav.Link href="/">News feed</Nav.Link>
             <Nav.Link href="/help">Merchant Zome</Nav.Link>
-            <Nav.Link href="/help">help</Nav.Link>
+            <Nav.Link href="/addProduct">Add Product</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
